@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>rcrdlist</title>
+    <title>RCRDList</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css styles/main.css -->
@@ -17,15 +17,17 @@
 
     <!-- build:vulcanized elements/elements.vulcanized.html -->
     <link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
+    <link rel="import" href="bower_components/core-menu/core-menu.html">
+    <link rel="import" href="bower_components/core-item/core-item.html">
     <link rel="import" href="elements/elements.html">
     <!-- endbuild-->
   </head>
   <body unresolved>
     <core-scaffold>
   <core-header-panel navigation flex mode="seamed">
-    <core-toolbar>Application</core-toolbar>
-    <core-menu theme="core-light-theme">
-      <core-item icon="settings" label="item1"></core-item>
+    <core-toolbar>RCRDList</core-toolbar>
+    <core-menu>
+      <core-item icon="settings" label="Settings"><a href="#test"></a></core-item>
       <core-item icon="settings" label="item2"></core-item>
     </core-menu>
   </core-header-panel>
