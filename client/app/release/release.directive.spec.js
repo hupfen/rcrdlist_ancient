@@ -13,7 +13,7 @@ describe('Directive: release', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<release></release>');
+    element = angular.element('<rcrd-release></rcrd-release>');
     element = $compile(element)(scope);
     scope.$apply();
     expect(element.text()).toBe('this is the release directive');

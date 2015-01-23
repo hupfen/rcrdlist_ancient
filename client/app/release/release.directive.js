@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module('rcrdlistApp')
-  .directive('release', function () {
+  .directive('rcrdRelease', function () {
     return {
       templateUrl: 'app/release/release.html',
       restrict: 'EA',
-      link: function (scope, element, attrs) {
+      scope: {
+      release: '=release'
       }
     };
   });
