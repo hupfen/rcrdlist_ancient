@@ -5,11 +5,13 @@
         <h1 class="md-toolbar-tools" hide show-gt-md>Navigation</h1>
         <h1 class="md-toolbar-tools" hide-gt-md>RCRDList</h1>
       </md-toolbar>
-      <md-content class="md-padding" ng-controller="LeftCtrl">
-        <p>
-          This sidenav is locked open on your device. To go back to the default behavior,
-          narrow your display.
-        </p>
+      <md-content ng-controller="LeftCtrl">
+        <a class="menu-item md-menu-item" ng-click="showAbout($event)" md-ink-ripple="#bbb">
+          <span>About RCRDList</span>
+        </a>
+        <a class="menu-item md-menu-item" ng-href="#" md-ink-ripple="#bbb">
+          <span>About RCRDList</span>
+        </a>
       </md-content>
     </md-sidenav>
     <md-content flex>
@@ -20,8 +22,8 @@
     </div>
   </md-toolbar>
 
-      <md-content class="md-padding">
-           <div layout layout-align="center center">Get new music in your inbox. Every day.</div>   
+      <md-content class="md-padding" id="cta">
+           <div layout layout-align="center center"><h1>Get new music in your inbox. Every day.</h1></div>   
         
         <form action="//rcrdbox.us7.list-manage.com/subscribe/post?u=e65674ce22790a2765549315e&amp;id=928bc7161c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate layout layout-align="center center" layout-sm="column">
         <md-input-container>

@@ -1,13 +1,24 @@
 'use strict';
 
 angular.module('rcrdlistApp')
-  .controller('MainCtrl', function ($scope, $firebase, $timeout, $mdSidenav, $log) {
+  .controller('MainCtrl', function ($scope, $firebase, $timeout, $mdSidenav, $log, $mdDialog) {
   
   var ref = new Firebase('https://lep-rcrdlist.firebaseio.com/albums');
   var sync = $firebase(ref);
 
   // if ref points to a data collection
   $scope.releases = sync.$asArray();
+  
+  $scope.showAbout = function(ev) {
+    $mdDialog.show(
+      $mdDialog.alert()
+        .title('This is an alert title')
+        .content('You can specify some description text in here.')
+        .ariaLabel('Password notification')
+        .ok('Got it!')
+        .targetEvent(ev)
+    );
+  };
 
   $scope.toggleLeft = function() {
     $mdSidenav('left').toggle()
