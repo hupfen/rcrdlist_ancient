@@ -9,3 +9,14 @@ md-content#cta {
 md-input-container {
   margin-right: 10px;
 }
+
+
+/* entire container, keeps perspective */
+rcrd-release {
+	perspective: 1000;
+
+	/* flip the pane when hovered */
+	&:hover .spin, &.hover .spin {
+		transform: rotateY(180deg);
+	}
+}

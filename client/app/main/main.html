@@ -21,7 +21,8 @@
       <span class="md-flex">RCRDList</span>
     </div>
   </md-toolbar>
-
+<md-content layout="row" flex>
+  <md-content flex="75" layout="column">
       <md-content class="md-padding" id="cta">
            <div layout layout-align="center center"><h1>Get new music in your inbox. Every day.</h1></div>  
         
@@ -35,17 +36,21 @@
         <md-button class="md-raised md-primary" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">Join the List</md-button>
   </form>
       </md-content>
-      <md-content class="md-padding">
-        
-        <iframe style="border: 0; height: 42px; margin: auto; display: block;" src="https://bandcamp.com/EmbeddedPlayer/album=3586704336/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://miraclelegion.bandcamp.com/album/surprise-surprise-surprise">Surprise Surprise Surprise by Miracle Legion</a></iframe>
-        <iframe style="margin:auto; display: block;" src="https://embed.spotify.com/?uri=spotify:user:erebore:playlist:788MOXyTfcUb1tdw4oC7KJ" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>
-      </md-content>
       
       <md-content layout="row" layout-wrap layout-align="center center">
         <div flex-gt-sm="33" flex="50" ng-repeat="release in releases">
           <rcrd-release></rcrd-release>
         </div>
       </md-content>
+    </md-content>
+    <md-content flex="25" class="md-padding">
+        
+<iframe style="border: 0; display: block; margin: auto;" src="https://embed.spotify.com/?uri=spotify:track:4th1RQAelzqgY7wL53UGQt" width="250" height="330" frameborder="0" allowtransparency="true" class="md-whiteframe-z1"></iframe>
+      
+      <iframe style="border: 0; width: 250px; height: 392px; display: block; margin: auto;" src="http://bandcamp.com/EmbeddedPlayer/album=2625653705/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="http://shop.silentseason.com/album/journey-of-mind-sscd04">Journey Of Mind [SSCD04] by Quantec</a></iframe>
+    </md-content>
+      </md-content>
+      
     </md-content>
   </section>
 </div>
