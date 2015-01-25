@@ -19,6 +19,10 @@ angular.module('rcrdlistApp')
         .targetEvent(ev)
     );
   };
+  
+  $scope.playAlbum = function(album) {
+    console.log(album);
+  };
 
   $scope.toggleLeft = function() {
     $mdSidenav('left').toggle()

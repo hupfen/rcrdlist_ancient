@@ -15,7 +15,7 @@
       </md-content>
     </md-sidenav>
     <md-content flex>
-          <md-toolbar class="md-primary">
+    <md-toolbar md-scroll-shrink class="md-primary">
     <div class="md-toolbar-tools" ng-click="toggleLeft()">
       <span class="md-flex fa fa-bars" hide-gt-md></span>
       <span class="md-flex">RCRDList</span>
@@ -23,7 +23,7 @@
   </md-toolbar>
 
       <md-content class="md-padding" id="cta">
-           <div layout layout-align="center center"><h1>Get new music in your inbox. Every day.</h1></div>   
+           <div layout layout-align="center center"><h1>Get new music in your inbox. Every day.</h1></div>  
         
         <form action="//rcrdbox.us7.list-manage.com/subscribe/post?u=e65674ce22790a2765549315e&amp;id=928bc7161c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate layout layout-align="center center" layout-sm="column">
         <md-input-container>
@@ -35,11 +35,17 @@
         <md-button class="md-raised md-primary" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">Join the List</md-button>
   </form>
       </md-content>
-      <div layout="row" layout-wrap layout-align="center center">
+      <md-content class="md-padding">
+        
+        <iframe style="border: 0; height: 42px; margin: auto; display: block;" src="https://bandcamp.com/EmbeddedPlayer/album=3586704336/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://miraclelegion.bandcamp.com/album/surprise-surprise-surprise">Surprise Surprise Surprise by Miracle Legion</a></iframe>
+        <iframe style="margin:auto; display: block;" src="https://embed.spotify.com/?uri=spotify:user:erebore:playlist:788MOXyTfcUb1tdw4oC7KJ" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>
+      </md-content>
+      
+      <md-content layout="row" layout-wrap layout-align="center center">
         <div flex-gt-sm="33" flex="50" ng-repeat="release in releases">
-          <rcrd-release release="release"></rcrd-release>
+          <rcrd-release></rcrd-release>
         </div>
-      </div>
+      </md-content>
     </md-content>
   </section>
 </div>
