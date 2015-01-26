@@ -1,13 +1,12 @@
 <div class="spin">
 <div class="front">
   <md-card>
-  <!--<img ng-src="{{release.artwork}}" alt="Washed Out">-->
-  <img src="https://unsplash.it/800?random" ng-click="showAbout($event)">
+  <img ng-src="{{release.artwork}}" alt="{{release.artist}}" ng-click="showAbout($event)">
 </md-card>
   </div>
 <div class="back">
   <md-card>
-  <img src="https://unsplash.it/800?random" ng-click="showAbout($event)">
+  <img ng-src="{{release.artwork}}" alt="{{release.artist}}">
   <md-card-content layout="row" layout-align="center start">
     <div flex="50">
     <h2><em>{{release.album}}</em></h2>
