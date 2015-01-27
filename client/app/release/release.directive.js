@@ -11,7 +11,7 @@ angular.module('rcrdlistApp')
         };
         
         $scope.playAlbum = function() {
-          $scope.$parent.playAlbum(this.release);
+          $scope.$parent.playAlbum(this.release.stream);
         };
     }
     };

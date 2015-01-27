@@ -44,9 +44,9 @@
     </div>
     <div flex="25" class="md-padding">
         
-<iframe style="border: 0; display: block; margin: auto;" src="https://embed.spotify.com/?uri=spotify:track:4th1RQAelzqgY7wL53UGQt" width="250" height="330" frameborder="0" allowtransparency="true" class="md-whiteframe-z1"></iframe>
+<iframe style="border: 0; display: block; margin: auto;" ng-show="spotifyShow" ng-src="{{spotify}}" width="250" height="330" frameborder="0" allowtransparency="true" class="md-whiteframe-z1"></iframe>
       
-      <iframe style="border: 0; width: 250px; height: 392px; display: block; margin: auto;" src="http://bandcamp.com/EmbeddedPlayer/album=2625653705/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="http://shop.silentseason.com/album/journey-of-mind-sscd04">Journey Of Mind [SSCD04] by Quantec</a></iframe>
+      <iframe ng-show="bandcampShow" style="border: 0; width: 250px; height: 392px; display: block; margin: auto;" ng-src="{{bandcamp}}" seamless></iframe>
     </div>
       </div>
       

@@ -5,6 +5,9 @@ angular.module('rcrdlistApp')
   
   var ref = new Firebase('https://lep-rcrdlist.firebaseio.com/albums');
   var sync = $firebase(ref);
+  
+  $scope.spotify = null;
+  $scope.bandcamp = null;
 
   // if ref points to a data collection
   $scope.releases = sync.$asArray();
@@ -21,7 +24,14 @@ angular.module('rcrdlistApp')
   };
   
   $scope.playAlbum = function(album) {
-    console.log(album);
+    if (album.spotify) {
+      $scope.spotify = 'https://embed.spotify.com/?uri=' + album.spotify;
+      $scope.bandcamp = null;
+    }
+    if (album.bandcamp) {     
+      $scope.spotify = null;
+      $scope.bandcamp = 'http://bandcamp.com/EmbeddedPlayer/album=' + album.bandcamp +'/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/';
+    }
   };
 
   $scope.toggleLeft = function() {
