@@ -8,8 +8,8 @@
         <a class="menu-item md-menu-item" ng-click="showAbout($event)" md-ink-ripple="#bbb">
           <span>About RCRDList</span>
         </a>
-        <a class="menu-item md-menu-item" ng-href="#" md-ink-ripple="#bbb">
-          <span>About RCRDList</span>
+        <a class="menu-item md-menu-item" ng-href="#" md-ink-ripple="#bbb" ng-click="colophon($event)">
+          <span>Colophon</span>
         </a>
       </md-content>
     </md-sidenav>
@@ -23,7 +23,8 @@
 <md-content layout="row" flex md-scroll-y>
   <div flex="75" layout="column">
       <div class="md-padding" id="cta">
-           <div layout layout-align="center center"><h1>Get new music in your inbox. Every day.</h1></div>  
+           <div layout="column" layout-align="center center"><h1>Get new music in your inbox. Every day.</h1>
+        <h2>RCRDList highlights obscure, strange, and interesting albums of all genres, picked by musicians and music technologists.</h2></div>  
         
         <form action="//rcrdbox.us7.list-manage.com/subscribe/post?u=e65674ce22790a2765549315e&amp;id=928bc7161c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate layout layout-align="center center" layout-sm="column">
         <md-input-container>
@@ -37,16 +38,16 @@
       </div>
       
       <div layout="row" layout-wrap layout-align="center center">
-        <div flex-gt-sm="33" flex="50" ng-repeat="release in releases">
+        <div flex-gt-sm="33" flex="50" ng-repeat="release in releases|orderBy:'date':true">
           <rcrd-release></rcrd-release>
         </div>
       </div>
     </div>
     <div flex="25" class="md-padding">
         
-<iframe style="border: 0; display: block; margin: auto;" ng-show="spotifyShow" ng-src="{{spotify}}" width="250" height="330" frameborder="0" allowtransparency="true" class="md-whiteframe-z1"></iframe>
+<iframe style="border: 0; display: block; margin: auto;" ng-show="spotify" ng-src="{{spotify}}" width="250" height="330" frameborder="0" allowtransparency="true" class="md-whiteframe-z1"></iframe>
       
-      <iframe ng-show="bandcampShow" style="border: 0; width: 250px; height: 392px; display: block; margin: auto;" ng-src="{{bandcamp}}" seamless></iframe>
+      <iframe ng-show="bandcamp" style="border: 0; width: 250px; height: 392px; display: block; margin: auto;" ng-src="{{bandcamp}}" seamless></iframe>
     </div>
       </div>
       

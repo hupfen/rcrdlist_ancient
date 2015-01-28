@@ -1,6 +1,11 @@
+h1, h2 {
+  text-align: center;
+}
+
 .fa {
   margin-right: 16px;
 }
+
 
 md-content#cta {
   background-color: rgb(245,245,245);
@@ -19,4 +24,9 @@ rcrd-release {
 	&:hover .spin, &.hover .spin {
 		transform: rotateY(180deg);
 	}
+}
+
+md-sidenav.md-locked-open {
+width: 200px;
+min-width: 200px;
 }

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rcrdlistApp')
-  .controller('MainCtrl', function ($scope, $firebase, $timeout, $mdSidenav, $log, $mdDialog) {
+  .controller('MainCtrl', function ($scope, $firebase, $timeout, $mdSidenav, $log, $mdDialog, $sce) {
   
   var ref = new Firebase('https://lep-rcrdlist.firebaseio.com/albums');
   var sync = $firebase(ref);
@@ -23,14 +23,27 @@ angular.module('rcrdlistApp')
     );
   };
   
+  $scope.colophon = function(ev) {
+    $mdDialog.show(
+      $mdDialog.alert()
+        .title('Colophon')
+        .content('Site ')
+        .ariaLabel('Password notification')
+        .ok('Got it!')
+        .targetEvent(ev)
+    );
+  };
+  
+  //<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>, <a href="http://www.danielbruce.se" title="Daniel Bruce">Daniel Bruce</a>, <a href="http://www.simpleicon.com" title="SimpleIcon">SimpleIcon</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>         is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
+  
   $scope.playAlbum = function(album) {
     if (album.spotify) {
-      $scope.spotify = 'https://embed.spotify.com/?uri=' + album.spotify;
+      $scope.spotify = $sce.trustAsResourceUrl('https://embed.spotify.com/?uri=' + album.spotify);
       $scope.bandcamp = null;
     }
     if (album.bandcamp) {     
       $scope.spotify = null;
-      $scope.bandcamp = 'http://bandcamp.com/EmbeddedPlayer/album=' + album.bandcamp +'/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/';
+      $scope.bandcamp = $sce.trustAsResourceUrl('http://bandcamp.com/EmbeddedPlayer/album=' + album.bandcamp +'/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/');
     }
   };
 
