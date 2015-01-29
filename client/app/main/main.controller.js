@@ -23,6 +23,17 @@ angular.module('rcrdlistApp')
     );
   };
   
+  $scope.curators = function(ev) {
+    $mdDialog.show(
+      $mdDialog.alert()
+        .title('Colophon')
+        .content('Site ')
+        .ariaLabel('Password notification')
+        .ok('Got it!')
+        .targetEvent(ev)
+    );
+  };
+  
   $scope.colophon = function(ev) {
     $mdDialog.show(
       $mdDialog.alert()
