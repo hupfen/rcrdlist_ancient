@@ -15,10 +15,10 @@ angular.module('rcrdlistApp')
   $scope.showAbout = function(ev) {
     $mdDialog.show(
       $mdDialog.alert()
-        .title('This is an alert title')
-        .content('You can specify some description text in here.')
-        .ariaLabel('Password notification')
-        .ok('Got it!')
+        .title('About RCRDList')
+        .content('RCRDList highlights obscure, strange, and interesting albums of all genres, picked by musicians and music technologists. Artists are typically ones with no song over 10,000 plays on Spotify, or meet some similar measure of relative obscurity. We do our best to pick albums of different genres each day - from hip-hop to classical, from punk to prog.')
+        .ariaLabel('About RCRDList')
+        .ok('Close')
         .targetEvent(ev)
     );
   };
@@ -26,10 +26,10 @@ angular.module('rcrdlistApp')
   $scope.curators = function(ev) {
     $mdDialog.show(
       $mdDialog.alert()
-        .title('Colophon')
-        .content('Site ')
-        .ariaLabel('Password notification')
-        .ok('Got it!')
+        .title('About the Curators')
+        .content('Zoe Landon is a web developer, entrepreneur, and drummer from Oregon. Yanir Seroussi is the data scientist behind Bandcamp Recommender. Kyle Zimmermann is a video game audio engineer from Wisconsin. Jason Champion is a CTO and guitarist from Oregon.')
+        .ariaLabel('Curators')
+        .ok('Close')
         .targetEvent(ev)
     );
   };
@@ -38,9 +38,9 @@ angular.module('rcrdlistApp')
     $mdDialog.show(
       $mdDialog.alert()
         .title('Colophon')
-        .content('Site ')
-        .ariaLabel('Password notification')
-        .ok('Got it!')
+        .content('Site built using Angular Material. Hosting by Digital Ocean. Icons via Flaticon, created by Daniel Bruce, Freepik, and SimpleIcon. Part of the Fortnight Club project: http://fortnight.club')
+        .ariaLabel('Site Colophon')
+        .ok('Close')
         .targetEvent(ev)
     );
   };
