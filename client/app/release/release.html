@@ -9,7 +9,7 @@
   <img ng-src="{{release.artwork}}" alt="{{release.artist}}">
   <md-card-content layout="column" layout-align="start center">
     <h3><em>{{release.album}}</em><br>{{release.artist}}</h3>
-      <p class="details">{{release.genre}} &mdash; {{release.date}}</p>
+      <p class="details">{{release.genre}} &mdash; {{release.date | date:'mediumDate'}}</p>
     <div layout="row" layout-align="center center">
       <a class="flaticon-spotify" ng-href="{{release.spotify}}" ng-show="release.spotify" target="_blank"></a>
       <a class="flaticon-bc1" ng-href="{{release.bandcamp}}" ng-show="release.bandcamp" target="_blank"></a>

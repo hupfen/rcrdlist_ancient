@@ -10,7 +10,15 @@ angular.module('rcrdlistApp')
   $scope.bandcamp = null;
 
   // if ref points to a data collection
-  $scope.releases = sync.$asArray();
+  var releases = sync.$asArray();
+  
+  releases.$loaded().then(function(releaseList) {
+    releaseList.map(function(rel, index, array) {
+      rel.date = new Date(rel.date);
+      console.log(rel.date);
+    });
+    $scope.releases = releaseList;
+  });
   
   $scope.showAbout = function(ev) {
     $mdDialog.show(
