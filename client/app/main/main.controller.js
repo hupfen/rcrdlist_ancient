@@ -56,13 +56,20 @@ angular.module('rcrdlistApp')
   //<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>, <a href="http://www.danielbruce.se" title="Daniel Bruce">Daniel Bruce</a>, <a href="http://www.simpleicon.com" title="SimpleIcon">SimpleIcon</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>         is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
   
   $scope.playAlbum = function(album) {
-    if (album.spotify) {
-      $scope.spotify = $sce.trustAsResourceUrl('https://embed.spotify.com/?uri=' + album.spotify);
-      $scope.bandcamp = null;
-    }
     if (album.bandcamp) {     
       $scope.spotify = null;
       $scope.bandcamp = $sce.trustAsResourceUrl('http://bandcamp.com/EmbeddedPlayer/album=' + album.bandcamp +'/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/');
+      $scope.soundcloud = null;
+    }
+    else if (album.soundcloud) {
+      $scope.bandcamp = null;
+      $scope.spotify = null;
+      $scope.soundcloud = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + album.soundcloud + '&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true';
+    }
+    else if (album.spotify) {
+      $scope.spotify = $sce.trustAsResourceUrl('https://embed.spotify.com/?uri=' + album.spotify);
+      $scope.bandcamp = null;
+      $scope.soundcloud = null;
     }
   };
 
