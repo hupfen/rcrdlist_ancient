@@ -15,7 +15,6 @@ angular.module('rcrdlistApp')
   releases.$loaded().then(function(releaseList) {
     releaseList.map(function(rel, index, array) {
       rel.date = new Date(rel.date);
-      console.log(rel.date);
     });
     $scope.releases = releaseList;
   });
