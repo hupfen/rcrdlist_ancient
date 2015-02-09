@@ -11,9 +11,10 @@ angular.module('rcrdlistApp')
         };
         
         $scope.playAlbum = function() {
-          var stream = this.release.stream || {bandcamp: this.bandcampStream, 
-                                               soundcloud: this.soundcloudStream,
-                                               spotify: this.spotifyStream};
+          var stream = this.release.stream || {bandcamp: this.release.bcstream, 
+                                               soundcloud: this.release.scstream,
+                                               spotify: this.release.spotify,
+                                               jamendo: this.release.jstream};
           $scope.$parent.playAlbum(stream);
         };
     }

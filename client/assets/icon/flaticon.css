@@ -20,15 +20,18 @@ margin-left: 20px;
 .flaticon-bc1:before {
 	content: "\e001";
 }
-.flaticon-itunes:before {
+.flaticon-circular263:before {
 	content: "\e002";
 }
-.flaticon-play62:before {
+.flaticon-itunes:before {
 	content: "\e003";
 }
-.flaticon-soundcloud7:before {
+.flaticon-play62:before {
 	content: "\e004";
 }
-.flaticon-spotify:before {
+.flaticon-soundcloud7:before {
 	content: "\e005";
+}
+.flaticon-spotify:before {
+	content: "\e006";
 }

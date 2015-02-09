@@ -59,16 +59,25 @@ angular.module('rcrdlistApp')
       $scope.spotify = null;
       $scope.bandcamp = $sce.trustAsResourceUrl('http://bandcamp.com/EmbeddedPlayer/album=' + album.bandcamp +'/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/');
       $scope.soundcloud = null;
+      $scope.jamendo = null;
     }
     else if (album.soundcloud) {
       $scope.bandcamp = null;
       $scope.spotify = null;
-      $scope.soundcloud = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + album.soundcloud + '&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true';
+      $scope.jamendo = null;
+      $scope.soundcloud = $sce.trustAsResourceUrl('https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/' + album.soundcloud + '&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true');
+    }
+    else if (album.jamendo) {
+      $scope.bandcamp = null;
+      $scope.spotify = null;
+      $scope.soundcloud = null;
+      $scope.jamendo = $sce.trustAsResourceUrl('//widgets.jamendo.com/v3/album/' + album.jamendo + '?autoplay=0&layout=standard&manualWidth=400&width=250&theme=light&highlight=0&tracklist=true&tracklist_n=3&embedCode=');
     }
     else if (album.spotify) {
       $scope.spotify = $sce.trustAsResourceUrl('https://embed.spotify.com/?uri=' + album.spotify);
       $scope.bandcamp = null;
       $scope.soundcloud = null;
+      $scope.jamendo = null;
     }
   };
 
