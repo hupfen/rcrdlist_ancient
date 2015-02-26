@@ -14,41 +14,6 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
     padding: 0.2em 0;
 }
 
-md-toolbar.md-default-theme {
-  background-color: rgb(131,68,108);
-  color: rgb(255,255,255);
-}
-
-.menu-item {
-background: none;
-border-width: 0;
-cursor: pointer;
-display: block;
-color: #333;
-font-size: inherit;
-line-height: 40px;
-max-height: 40px;
-opacity: 1;
-margin: 0;
-outline: none;
-padding: 0px 28px;
-position: relative;
-text-align: left;
-text-decoration: none;
-width: 100%;
-z-index: 1;
--webkit-transition: 0.45s cubic-bezier(0.35, 0, 0.25, 1);
--webkit-transition-property: max-height, background-color, opacity;
--moz-transition: 0.45s cubic-bezier(0.35, 0, 0.25, 1);
--moz-transition-property: max-height, background-color, opacity;
-transition: 0.45s cubic-bezier(0.35, 0, 0.25, 1);
-transition-property: max-height, background-color, opacity;
-  
-  &:hover {
-    color: #999;
-  }
-}
-
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
@@ -58,6 +23,7 @@ transition-property: max-height, background-color, opacity;
 
 // Component styles are injected through grunt
 // injector
+@import 'account/login/login.scss';
+@import 'admin/admin.scss';
 @import 'main/main.scss';
-@import 'release/release.scss';
 // endinjector

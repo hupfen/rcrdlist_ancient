@@ -5,8 +5,7 @@ angular.module('rcrdlistApp', [
   'ngResource',
   'ngSanitize',
   'ui.router',
-  'ngMaterial',
-  'firebase'
+  'ui.bootstrap'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider

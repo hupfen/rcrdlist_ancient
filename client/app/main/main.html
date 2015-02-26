@@ -1,59 +1,28 @@
-<div layout="row">
-    <md-sidenav layout="column" style="overflow:hidden; display: flex;" class="md-sidenav-left md-whiteframe-z1" md-component-id="left" md-is-locked-open="$media('gt-md')">
-      <md-toolbar class="md-primary">
-        <h1 class="md-toolbar-tools" hide show-gt-md>Navigation</h1>
-        <h1 class="md-toolbar-tools" hide-gt-md>RCRDList</h1>
-      </md-toolbar>
-      <md-content flex style="overflow: auto;" ng-controller="LeftCtrl">
-        <a class="menu-item md-menu-item" ng-click="showAbout($event)" md-ink-ripple="#bbb">
-          <span>About RCRDList</span>
-        </a>
-        <a class="menu-item md-menu-item" ng-href="#" md-ink-ripple="#bbb" ng-click="curators($event)">
-          <span>Curators</span>
-        </a>
-        <a class="menu-item md-menu-item" ng-href="#" md-ink-ripple="#bbb" ng-click="colophon($event)">
-          <span>Colophon</span>
-        </a>
-      </md-content>
-    </md-sidenav>
-    <div layout-fill layout="column">
-    <md-toolbar md-scroll-shrink class="md-primary">
-    <div class="md-toolbar-tools" ng-click="toggleLeft()">
-      <span class="md-flex fa fa-bars" hide-gt-md></span>
-      <span class="md-flex">RCRDList Archive</span>
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>'Allo, 'Allo!</h1>
+    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
+    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Features:</h1>
+      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings">
+        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}</a></li>
+      </ul>
     </div>
-  </md-toolbar>
-<md-content layout="row" flex md-scroll-y>
-  <div flex="75" layout="column">
-      <div class="md-padding" id="cta">
-           <div layout="column" layout-align="center center"><h1>Get new music in your inbox. Every day.</h1></div>  
-        
-        <form action="//rcrdbox.us7.list-manage.com/subscribe/post?u=e65674ce22790a2765549315e&amp;id=928bc7161c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate layout layout-align="center center" layout-sm="column">
-        <md-input-container>
-	<label for="mce-EMAIL">Email Address </label>
-	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-        </md-input-container>
-        
-    <div style="position: absolute; left: -5000px;"><input type="text" name="b_e65674ce22790a2765549315e_928bc7161c" tabindex="-1" value=""></div>
-        <md-button class="md-raised md-primary" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">Join the List</md-button>
-  </form>
-      </div>
-      
-      <div layout="row" layout-wrap layout-align="center center">
-        <div flex-gt-sm="33" flex="50" ng-repeat="release in releases|orderBy:'date':true">
-          <rcrd-release></rcrd-release>
-        </div>
-      </div>
-    </div>
-    <div flex="25" class="md-padding">
-        
-<iframe style="border: 0; display: block; margin: auto;" ng-show="spotify" ng-src="{{spotify}}" width="250" height="330" frameborder="0" allowtransparency="true" class="md-whiteframe-z1"></iframe>
-      
-      <iframe ng-show="bandcamp" style="border: 0; width: 250px; height: 392px; display: block; margin: auto;" ng-src="{{bandcamp}}" seamless></iframe>
-      <iframe width="250" height="300" scrolling="no" frameborder="no" ng-src="{{soundcloud}}" ng-show="{{soundcloud}}"></iframe>
-      <iframe ng-show="jamendo" id="widget" scrolling="no" frameborder="0" width="250" height="580" style="width: 250px; height: 580px;" ng-src="{{jamendo}}"></iframe>
-    </div>
-      </div>
-      
-    </div>
+  </div>
 </div>
+
+<footer class="footer">
+  <div class="container">
+      <p>Angular Fullstack v2.0.13 |
+        <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
+         <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
+  </div>
+</footer>

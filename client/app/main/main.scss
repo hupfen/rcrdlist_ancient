@@ -1,32 +1,30 @@
-h1, h2 {
-  text-align: center;
+.thing-form {
+    margin: 20px 0;
 }
 
-.fa {
-  margin-right: 16px;
+#banner {
+    border-bottom: none;
+    margin-top: -20px;
 }
 
-
-md-content#cta {
-  background-color: rgb(245,245,245);
+#banner h1 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
 }
 
-md-input-container {
-  margin-right: 10px;
+.hero-unit {
+    position: relative;
+    padding: 30px 15px;
+    color: #F5F5F5;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    background: #4393B9;
 }
 
-
-/* entire container, keeps perspective */
-rcrd-release {
-	perspective: 1000;
-
-	/* flip the pane when hovered */
-	&:hover .spin, &.hover .spin {
-		transform: rotateY(180deg);
-	}
-}
-
-md-sidenav.md-locked-open {
-width: 200px;
-min-width: 200px;
+.footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 70px;
+    border-top: 1px solid #E5E5E5;
 }
