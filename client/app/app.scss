@@ -3,6 +3,11 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 
 @import 'font-awesome/scss/font-awesome';
 
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
+@import "bootswatch-scss/yeti/variables";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "bootswatch-scss/yeti/bootswatch";
+
 /**
  * App-wide Styles
  */
@@ -23,7 +28,6 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 
 // Component styles are injected through grunt
 // injector
-@import 'account/login/login.scss';
-@import 'admin/admin.scss';
 @import 'main/main.scss';
+@import 'release/release.scss';
 // endinjector
