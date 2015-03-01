@@ -40,6 +40,9 @@ var all = {
       }
     }
   },
+  
+  postgres: {
+  }
 
 };
 
