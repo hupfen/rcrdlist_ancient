@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('rcrdlistApp')
-  .controller('PopulateCtrl', function ($scope) {
-    $scope.message = 'Hello';
+  .controller('PopulateCtrl', function ($scope, $http) {
+    $http.get('/api/populate').success(function() {
+    });
   });

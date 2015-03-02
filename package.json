@@ -20,6 +20,7 @@
     "pg-db": "^1.0.2",
     "prerender-node": "^1.2.1",
     "serve-favicon": "~2.0.1",
+    "sqlite3": "^3.0.5",
     "sugar": "^1.4.1"
   },
   "devDependencies": {
