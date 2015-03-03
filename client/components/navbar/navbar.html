@@ -1,20 +1,22 @@
-<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
-  <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="/" class="navbar-brand">rcrdlist</a>
-    </div>
-    <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
-      <ul class="nav navbar-nav">
-        <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-            <a ng-href="{{item.link}}">{{item.title}}</a>
-        </li>
-      </ul>
-    </div>
+<div  ng-controller="NavbarCtrl">
+<nav class="navbar navbar-fixed-left navbar-minimal animate" ng-class="{open: open}" role="navigation">
+  <div class="navbar-toggler animate" ng-click="open = !open">
+    <span class="menu-icon"></span>
   </div>
-</div>
+  <ul class="navbar-menu animate">
+    <li>
+      <a href="" class="animate">
+        <span class="desc animate">Home</span>
+        <span class="fa fa-home"></span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>RCRDList</h1>
+  </div>
+</header>
+  
+  </div>

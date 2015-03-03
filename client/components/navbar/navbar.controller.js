@@ -7,7 +7,7 @@ angular.module('rcrdlistApp')
       'link': '/'
     }];
 
-    $scope.isCollapsed = true;
+    $scope.open = false;
 
     $scope.isActive = function(route) {
       return route === $location.path();
