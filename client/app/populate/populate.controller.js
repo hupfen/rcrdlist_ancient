@@ -26,7 +26,9 @@ angular.module('rcrdlistApp')
                    bcID: $scope.bcID,
                    scID: $scope.scID,
                    jmID: $scope.jmID,
-                   spID: $scope.spID
+                   spID: $scope.spID,
+                   date: $scope.date,
+                   artwork: $scope.artwork
                   };
       $http.post('/api/populate', entry).success(function() {
       });

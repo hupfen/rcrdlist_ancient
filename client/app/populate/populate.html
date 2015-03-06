@@ -3,22 +3,76 @@
     <div class="col-sm-8 col-sm-offset-2">
       <form>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+    <input type="text" ng-model="artist" class="form-control" placeholder="Artist">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <input type="text" ng-model="album" class="form-control" placeholder="Album">
+  </div>
+        
+        <div class="form-group">
+    <input type="text" ng-model="summary" class="form-control" placeholder="Summary">
   </div>
   <div class="form-group">
-    <label for="exampleInputFile">File input</label>
-    <input type="file" id="exampleInputFile">
-    <p class="help-block">Example block-level help text here.</p>
+    <input type="text" ng-model="genre" class="form-control" placeholder="Genre">
   </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Check me out
-    </label>
+        <div class="form-group">
+    <input type="text" ng-model="bandcamp" class="form-control" placeholder="Bandcamp Link">
+  </div>
+  <div class="form-group">
+    <input type="text" ng-model="spotify" class="form-control" placeholder="Spotify Link">
+  </div>
+        <div class="form-group">
+    <input type="text" ng-model="jamendo" class="form-control" placeholder="Jamendo Link">
+  </div>
+  <div class="form-group">
+    <input type="text" ng-model="soundcloud" class="form-control" placeholder="SoundCloud Link">
+  </div>
+        <div class="form-group">
+    <input type="text" ng-model="amazon" class="form-control" placeholder="Amazon">
+  </div>
+  <div class="form-group">
+    <input type="text" ng-model="itunes" class="form-control" placeholder="iTunes">
+  </div>
+        <div class="form-group">
+    <input type="text" ng-model="gplay" class="form-control" placeholder="Google Play">
+  </div>
+  <div class="form-group">
+    <input type="text" ng-model="twitter" class="form-control" placeholder="Twitter">
+  </div>
+        <div class="form-group">
+    <input type="text" ng-model="facebook" class="form-control" placeholder="Facebook">
+  </div>
+  <div class="form-group">
+    <input type="text" ng-model="youtube" class="form-control" placeholder="YouTube">
+  </div>
+        <div class="form-group">
+    <input type="text" ng-model="gplus" class="form-control" placeholder="Google+">
+  </div>
+  <div class="form-group">
+    <input type="text" ng-model="scSocial" class="form-control" placeholder="SoundCloud account link">
+  </div>
+        <div class="form-group">
+    <input type="text" ng-model="picker" class="form-control" placeholder="Curator Name">
+  </div>
+  <div class="form-group">
+    <input type="text" ng-model="bcID" class="form-control" placeholder="Bandcamp Embed ID">
+  </div>
+        <div class="form-group">
+    <input type="text" ng-model="scID" class="form-control" placeholder="Soundcloud Embed ID">
+  </div>
+  <div class="form-group">
+    <input type="text" ng-model="jmID" class="form-control" placeholder="Jamendo Embed ID">
+  </div>
+        <div class="form-group">
+    <input type="text" ng-model="spID" class="form-control" placeholder="Spotify Album ID">
+  </div>
+  <div class="form-group">
+    <input type="date" ng-model="date" class="form-control" placeholder="Listing Date">
+  </div>
+        
+  <div class="form-group">
+    <label for="exampleInputFile">Album Artwork</label>
+    <input type="file" id="artwork" ng-model="artwork">
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
