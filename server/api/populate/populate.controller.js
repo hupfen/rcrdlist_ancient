@@ -14,23 +14,25 @@ exports.index = function(req, res) {
   });*/
   var result;
   db.all('select * from release', function(err, rows) {
+    console.log(err, rows);
     result = rows;
   });
-  
+  console.log(result);
   res.json(result);
 };
 
 exports.insert = function(req, res) {
-  var p = req.params;
+  var p = req.body;
   var artwork;
   
   if (new Date(p.date) < new Date()) {
-    artwork = 'https://s3-us-west-2.amazonaws.com/rcrdlist/' + _.escape(_.deburr(p.artist.toLowerCase().replace(/\s+/g, ''))) + '.jpg';
+    artwork = 'https://s3-us-west-2.amazonaws.com/rcrdlist/' + _.escape(p.artist.toLowerCase().replace(/\s+/g, '').replace(/&/g, 'and')) + '.jpg';
   }
   
-  db.run('insert into release (artist, album, date, artwork, summary, genre, bandcamp, spotify, jamendo, soundcloud, amazon, itunes, gplay, twitter, facebook, youtube, gplus, scSocial, picker, bcID, scID, jmID) values ($artist, $album, $date, $artwork, $summary, $genre, $bandcamp, $spotify, $jamendo, $soundcloud, $amazon, $itunes, $gplay, $twitter, $facebook, $youtube, $gplus, $scSocial, $picker, $bcID, $scID, $jmID)', 
+  
+  db.run('insert into release (artist, album, date, artwork, summary, genre, bandcamp, spotify, jamendo, soundcloud, amazon, itunes, gplay, twitter, facebook, youtube, gplus, scSocial, picker, bcID, scID, jmID, spotFollow) values ($artist, $album, $date, $artwork, $summary, $genre, $bandcamp, $spotify, $jamendo, $soundcloud, $amazon, $itunes, $gplay, $twitter, $facebook, $youtube, $gplus, $scSocial, $picker, $bcID, $scID, $jmID, $spotFollow)', 
          {
-    $artist: p.artist, $album: p.album, $date: p.date, $artwork: artwork, $summary: p.summary || null, $genre: p.genre, $bandcamp: p.bandcamp || null, $spotify: p.spotify || null, $jamendo: p.jamendo || null, $soundcloud: p.soundcloud || null, $amazon: p.amazon || null, $itunes: p.itunes || null, $gplay: p.gplay || null, $twitter: p.twitter || null, $facebook: p.facebook || null, $youtube: p.youtube || null, $gplus: p.gplus || null, $scSocial: p.scSocial || null, $picker: p.picker, $bcID: p.bcID || null, $scID: p.scID || null, $jmID: p.jmID || null
+    $artist: p.artist, $album: p.album, $date: p.date, $artwork: artwork, $summary: p.summary || null, $genre: p.genre, $bandcamp: p.bandcamp || null, $spotify: p.spotify || null, $jamendo: p.jamendo || null, $soundcloud: p.soundcloud || null, $amazon: p.amazon || null, $itunes: p.itunes || null, $gplay: p.gplay || null, $twitter: p.twitter || null, $facebook: p.facebook || null, $youtube: p.youtube || null, $gplus: p.gplus || null, $scSocial: p.scSocial || null, $picker: p.picker, $bcID: p.bcID || null, $scID: p.scID || null, $jmID: p.jmID || null, $spotFollow: p.spID || null
         }, function(err) {
          res.json(this.lastID);
          });
@@ -38,9 +40,9 @@ exports.insert = function(req, res) {
 
 exports.update = function(req, res) {
   var p = req.params;
-  db.run('insert into release (artist, album, date, artwork, summary, genre, bandcamp, spotify, jamendo, soundcloud, amazon, itunes, gplay, twitter, facebook, youtube, gplus, scSocial, picker, bcID, scID, jmID) values ($artist, $album, $date, $artwork, $summary, $genre, $bandcamp, $spotify, $jamendo, $soundcloud, $amazon, $itunes, $gplay, $twitter, $facebook, $youtube, $gplus, $scSocial, $picker, $bcID, $scID, $jmID)', 
+  db.run('insert into release (artist, album, date, artwork, summary, genre, bandcamp, spotify, jamendo, soundcloud, amazon, itunes, gplay, twitter, facebook, youtube, gplus, scSocial, picker, bcID, scID, jmID, spotFollow) values ($artist, $album, $date, $artwork, $summary, $genre, $bandcamp, $spotify, $jamendo, $soundcloud, $amazon, $itunes, $gplay, $twitter, $facebook, $youtube, $gplus, $scSocial, $picker, $bcID, $scID, $jmID, $spotFollow)', 
          {
-    $artist: p.artist, $album: p.album, $summary: p.summary || null, $genre: p.genre, $bandcamp: p.bandcamp || null, $spotify: p.spotify || null, $jamendo: p.jamendo || null, $soundcloud: p.soundcloud || null, $amazon: p.amazon || null, $itunes: p.itunes || null, $gplay: p.gplay || null, $twitter: p.twitter || null, $facebook: p.facebook || null, $youtube: p.youtube || null, $gplus: p.gplus || null, $scSocial: p.scSocial || null, $picker: p.picker, $bcID: p.bcID || null, $scID: p.scID || null, $jmID: p.jmID || null
+    $artist: p.artist, $album: p.album, $summary: p.summary || null, $genre: p.genre, $bandcamp: p.bandcamp || null, $spotify: p.spotify || null, $jamendo: p.jamendo || null, $soundcloud: p.soundcloud || null, $amazon: p.amazon || null, $itunes: p.itunes || null, $gplay: p.gplay || null, $twitter: p.twitter || null, $facebook: p.facebook || null, $youtube: p.youtube || null, $gplus: p.gplus || null, $scSocial: p.scSocial || null, $picker: p.picker, $bcID: p.bcID || null, $scID: p.scID || null, $jmID: p.jmID || null, $spotFollow: p.spID || null
         }, function(err) {
          res.json(this.lastID);
          });

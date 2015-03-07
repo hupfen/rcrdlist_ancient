@@ -7,12 +7,9 @@ var db = new sqlite3.Database('rcrdlist.db');
 
 // Get list of releases
 exports.index = function(req, res) {
-  var result;
   db.all('select * from release', function(err, rows) {
-    result = rows;
+    res.json(rows);
   });
-  
-  res.json(result);
 };
 
 // Get specific release

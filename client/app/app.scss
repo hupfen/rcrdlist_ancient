@@ -29,6 +29,7 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 #banner {
     border-bottom: none;
     margin-top: -20px;
+    margin-bottom: 20px;
 }
 
 #banner h1 {
@@ -209,6 +210,7 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 
 // Component styles are injected through grunt
 // injector
+@import 'album/album.scss';
 @import 'main/main.scss';
 @import 'populate/populate.scss';
 @import 'release/release.scss';

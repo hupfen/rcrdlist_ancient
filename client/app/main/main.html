@@ -1,15 +1,48 @@
 <div class="container" id="home">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
+      <div ng-repeat="album in releases | orderBy:'dateStr':true">
+        <div class="panel panel-default">
+          <div class="panel-heading text-center">
+            <h2 class="panel-title"><a ng-href="/release/{{album.id}}/{{album.human}}">{{album.artist}} - <em>{{album.album}}</em></a></h2>
+          </div>
+          <div class="panel-body row">
+            <div class="col-md-6"><img ng-src="{{album.artwork}}" class="img-thumbnail card-img"></div>
+            <div class="col-md-6 text-center"><p class="lead">{{album.summary}}</p>
+              <h3>Stream</h3>
+              <img ng-click="stream('bc', album.bcID)" src='assets/images/bc.png' ng-show="album.bcID" class="img-rounded">
+              <img ng-click="stream('sp', album.spotify)" src='assets/images/spotify.png' ng-show="album.spotify" class="img-rounded">
+              <img ng-click="stream('sc', album.scID)" src='assets/images/sc.png' ng-show="album.scID" class="img-rounded">
+              <img ng-click="stream('jm', album.jmID)" src='assets/images/jamendo.png' ng-show="album.jmID" class="img-rounded">
+            <h3>Purchase</h3>
+              <a ng-href="{{album.amazon}}" target="_blank"><img src='assets/images/amazon.png' ng-show="album.amazon" class="img-rounded"></a>
+              <a ng-href="{{album.itunes}}" target="_blank"><img src='assets/images/itunes.png' ng-show="album.itunes" class="img-rounded"></a>
+              <a ng-href="{{album.gplay}}" target="_blank"><img src='assets/images/gplay.png' ng-show="album.gplay" class="img-rounded"></a>
+              <a ng-href="{{album.bandcamp}}" target="_blank"><img src='assets/images/bc.png' ng-show="album.bandcamp" class="img-rounded"></a>
+              <a ng-href="{{album.jamendo}}" target="_blank"><img src='assets/images/jamendo.png' ng-show="album.jamendo" class="img-rounded"></a>
+            <h3>Follow</h3>
+              <a ng-href="{{album.twitter}}" target="_blank"><img src='assets/images/twitter.png' ng-show="album.twitter" class="img-rounded"></a>
+              <a ng-href="{{album.facebook}}" target="_blank"><img src='assets/images/fb.png' ng-show="album.facebook" class="img-rounded"></a>
+              <a ng-href="{{album.scSocial}}" target="_blank"><img src='assets/images/sc.png' ng-show="album.scSocial" class="img-rounded"></a>
+              <a ng-href="{{album.gplus}}" target="_blank"><img src='assets/images/gplus.png' ng-show="album.gplus" class="img-rounded"></a>
+              <a ng-href="{{album.youtube}}" target="_blank"><img src='assets/images/youtube.png' ng-show="album.youtube" class="img-rounded"></a>
+            </div>
+          </div>
+          <div class="panel-footer text-right">
+            
+            Listed under {{album.genre}} on {{album.date | date:'mediumDate'}} by {{album.picker}}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<footer class="footer">
+<!--<footer class="footer">
   <div class="container">
       <p>Angular Fullstack v2.0.13 |
         <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
          <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>
   </div>
 </footer>
+-->
