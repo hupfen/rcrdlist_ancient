@@ -243,6 +243,7 @@ header {
 
 // Component styles are injected through grunt
 // injector
+@import 'about/about.scss';
 @import 'album/album.scss';
 @import 'main/main.scss';
 @import 'populate/populate.scss';
