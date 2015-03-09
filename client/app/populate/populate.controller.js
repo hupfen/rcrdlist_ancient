@@ -6,6 +6,7 @@ angular.module('rcrdlistApp')
     });
   
     $scope.submit = function() {
+      $scope.error = null, $scope.success = null;
       var entry = {artist: $scope.artist,
                    album: $scope.album,
                    summary: $scope.summary,
@@ -31,6 +32,32 @@ angular.module('rcrdlistApp')
                    artwork: $scope.artwork
                   };
       $http.post('/api/populate', entry).success(function() {
+        $scope.success = 'Album saved successfully';
+        $scope.artist = null;
+        $scope.album = null;
+        $scope.summary = null;
+        $scope.genre = null;
+        $scope.bandcamp = null;
+        $scope.spotify = null;
+        $scope.jamendo = null;
+        $scope.soundcloud = null;
+        $scope.amazon = null;
+        $scope.itunes = null;
+        $scope.gplay = null;
+        $scope.twitter = null;
+        $scope.facebook = null;
+        $scope.youtube = null;
+        $scope.gplus = null;
+        $scope.scSocial = null;
+        $scope.picker = null;
+        $scope.bcID = null;
+        $scope.scID = null;
+        $scope.jmID = null;
+        $scope.spID = null;
+        $scope.date = null;
+        $scope.artwork  = null;
+      }).error(function(data) {
+        $scope.error = 'Something went wrong: ' + data;
       });
     };
   });

@@ -1,6 +1,8 @@
-<div id="populate" class="container">
+<div id="populate" class="container container-body">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
+      <div class="alert alert-success" role="alert" ng-show="success">{{success}}</div>
+      <div class="alert alert-danger" role="alert" ng-show="error">{{error}}</div>
       <form>
   <div class="form-group">
     <input type="text" ng-model="artist" class="form-control" placeholder="Artist">

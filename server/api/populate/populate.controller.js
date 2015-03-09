@@ -4,6 +4,7 @@ var _ = require('lodash');
 var sugar = require('sugar');
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('rcrdlist.db');
+var MailChimpAPI = require('mailchimp').MailChimpAPI;
 
 // Get list of populates
 exports.index = function(req, res) {
@@ -14,11 +15,8 @@ exports.index = function(req, res) {
   });*/
   var result;
   db.all('select * from release', function(err, rows) {
-    console.log(err, rows);
-    result = rows;
+    res.json(rows);
   });
-  console.log(result);
-  res.json(result);
 };
 
 exports.insert = function(req, res) {
@@ -26,9 +24,11 @@ exports.insert = function(req, res) {
   var artwork;
   
   if (new Date(p.date) < new Date()) {
-    artwork = 'https://s3-us-west-2.amazonaws.com/rcrdlist/' + _.escape(p.artist.toLowerCase().replace(/\s+/g, '').replace(/&/g, 'and')) + '.jpg';
+    artwork = 'https://s3-us-west-2.amazonaws.com/rcrdlist/' + p.artist.toLowerCase().replace(/\s+/g, '').replace(/&/g, 'and').replace(/[\.,-\/#!$%\^\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '') + '.jpg';
   }
-  
+  else {
+    // mailchimp/social stuffs
+  }
   
   db.run('insert into release (artist, album, date, artwork, summary, genre, bandcamp, spotify, jamendo, soundcloud, amazon, itunes, gplay, twitter, facebook, youtube, gplus, scSocial, picker, bcID, scID, jmID, spotFollow) values ($artist, $album, $date, $artwork, $summary, $genre, $bandcamp, $spotify, $jamendo, $soundcloud, $amazon, $itunes, $gplay, $twitter, $facebook, $youtube, $gplus, $scSocial, $picker, $bcID, $scID, $jmID, $spotFollow)', 
          {
