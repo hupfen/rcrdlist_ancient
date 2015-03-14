@@ -6,6 +6,6 @@ var controller = require('./release.controller');
 var router = express.Router();
 
 router.get('/', controller.index);
-router.get('/release/:id', controller.select);
+router.get('/:id', controller.select);
 
 module.exports = router;

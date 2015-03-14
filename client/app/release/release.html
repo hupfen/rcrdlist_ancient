@@ -1,3 +1,27 @@
 <div class="container container-body">
-This is the release view.
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 class="text-center">{{album.artist}} - <em>{{album.album}}</em></h2>
+    </div>
+    <div class="col-md-6"><img ng-src="{{album.artwork}}" class="img-thumbnail"></div>
+    <div class="col-md-6 text-center"><p class="lead">{{album.summary}}</p>
+      <h3 ng-show="album.bcID || album.spotify || album.scID || album.jmID">Stream</h3>
+      <img ng-click="stream('bc', album.bcID)" src='assets/images/bc.png' ng-show="album.bcID" class="img-rounded">
+      <img ng-click="stream('sp', album.spotify)" src='assets/images/spotify.png' ng-show="album.spotify" class="img-rounded">
+      <img ng-click="stream('sc', album.scID)" src='assets/images/sc.png' ng-show="album.scID" class="img-rounded">
+      <img ng-click="stream('jm', album.jmID)" src='assets/images/jamendo.png' ng-show="album.jmID" class="img-rounded">
+    <h3 ng-show="album.amazon || album.itunes || album.gplay || album.bandcamp || album.jamendo">Purchase</h3>
+      <a ng-href="{{album.amazon}}" target="_blank"><img src='assets/images/amazon.png' ng-show="album.amazon" class="img-rounded"></a>
+      <a ng-href="{{album.itunes}}" target="_blank"><img src='assets/images/itunes.png' ng-show="album.itunes" class="img-rounded"></a>
+      <a ng-href="{{album.gplay}}" target="_blank"><img src='assets/images/gplay.png' ng-show="album.gplay" class="img-rounded"></a>
+      <a ng-href="{{album.bandcamp}}" target="_blank"><img src='assets/images/bc.png' ng-show="album.bandcamp" class="img-rounded"></a>
+      <a ng-href="{{album.jamendo}}" target="_blank"><img src='assets/images/jamendo.png' ng-show="album.jamendo" class="img-rounded"></a>
+    <h3 ng-show="album.twitter || album.facebook || album.scSocial || album.gplus || album.youtube">Follow</h3>
+      <a ng-href="{{album.twitter}}" target="_blank"><img src='assets/images/twitter.png' ng-show="album.twitter" class="img-rounded"></a>
+      <a ng-href="{{album.facebook}}" target="_blank"><img src='assets/images/fb.png' ng-show="album.facebook" class="img-rounded"></a>
+      <a ng-href="{{album.scSocial}}" target="_blank"><img src='assets/images/sc.png' ng-show="album.scSocial" class="img-rounded"></a>
+      <a ng-href="{{album.gplus}}" target="_blank"><img src='assets/images/gplus.png' ng-show="album.gplus" class="img-rounded"></a>
+      <a ng-href="{{album.youtube}}" target="_blank"><img src='assets/images/youtube.png' ng-show="album.youtube" class="img-rounded"></a>
+    </div>
+  </div>
 </div>

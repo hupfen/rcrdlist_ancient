@@ -14,10 +14,7 @@ exports.index = function(req, res) {
 
 // Get specific release
 exports.select = function(req, res) {
-  var result;
-  db.get('select * from release where id = $id', {$id: req.params.releaseId}, function(err, row) {
-    result = row;
+  db.get('select * from release where id = $id', {$id: req.params.id}, function(err, row) {
+    res.json(row);
   });
-  
-  res.json(result);
 };

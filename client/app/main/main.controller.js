@@ -9,6 +9,8 @@ angular.module('rcrdlistApp')
         album.dateStr = new Date(album.date).valueOf();
         album.human = album.album.replace(/&/g, 'and').replace(/[\.,-\/#!$%\^\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '').dasherize() + '-by-' + album.artist.replace(/&/g, 'and').replace(/[\.,-\/#!$%\^\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '').dasherize();
         return album;
+      }).filter(function(rel) {
+        return rel.dateStr < new Date().valueOf();
       });
     });
   });
