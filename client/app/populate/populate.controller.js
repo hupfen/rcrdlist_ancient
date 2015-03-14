@@ -2,10 +2,11 @@
 
 angular.module('rcrdlistApp')
   .controller('PopulateCtrl', function ($scope, $http) {
-    $http.get('/api/populate').success(function() {
-    });
-  
+    //$http.get('/api/populate').success(function() {
+    //});
+    
     $scope.submit = function() {
+      $scope.artwork = document.getElementById('artwork').files[0];
       $scope.error = null, $scope.success = null;
       var entry = {artist: $scope.artist,
                    album: $scope.album,

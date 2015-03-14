@@ -5,6 +5,7 @@ var sugar = require('sugar');
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('rcrdlist.db');
 var MailChimpAPI = require('mailchimp').MailChimpAPI;
+var AWS = require('aws-sdk');
 
 // Get list of populates
 exports.index = function(req, res) {
@@ -20,6 +21,9 @@ exports.index = function(req, res) {
 };
 
 exports.insert = function(req, res) {
+  AWS.config.loadFromPath('config.json');
+  var s3 = new AWS.S3();
+  
   var p = req.body;
   var artwork;
   
@@ -27,15 +31,23 @@ exports.insert = function(req, res) {
     artwork = 'https://s3-us-west-2.amazonaws.com/rcrdlist/' + p.artist.toLowerCase().replace(/\s+/g, '').replace(/&/g, 'and').replace(/[\.,-\/#!$%\^\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '') + '.jpg';
   }
   else {
+    console.log(p);
+    var key = p.artist.toLowerCase().replace(/\s+/g, '').replace(/&/g, 'and').replace(/[\.,-\/#!$%\^\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '') + '.jpg';
+    artwork = 'https://s3-us-west-2.amazonaws.com/rcrdlist/' + key;
+    s3.putObject({Bucket: 'rcrdlist', ACL: 'public-read', Body: p.artwork, Key: key}, function(error, data) {
+      console.log(error);
+      console.log(data);
+      if (error) return;
+    });
     // mailchimp/social stuffs
   }
   
-  db.run('insert into release (artist, album, date, artwork, summary, genre, bandcamp, spotify, jamendo, soundcloud, amazon, itunes, gplay, twitter, facebook, youtube, gplus, scSocial, picker, bcID, scID, jmID, spotFollow) values ($artist, $album, $date, $artwork, $summary, $genre, $bandcamp, $spotify, $jamendo, $soundcloud, $amazon, $itunes, $gplay, $twitter, $facebook, $youtube, $gplus, $scSocial, $picker, $bcID, $scID, $jmID, $spotFollow)', 
+  /*db.run('insert into release (artist, album, date, artwork, summary, genre, bandcamp, spotify, jamendo, soundcloud, amazon, itunes, gplay, twitter, facebook, youtube, gplus, scSocial, picker, bcID, scID, jmID, spotFollow) values ($artist, $album, $date, $artwork, $summary, $genre, $bandcamp, $spotify, $jamendo, $soundcloud, $amazon, $itunes, $gplay, $twitter, $facebook, $youtube, $gplus, $scSocial, $picker, $bcID, $scID, $jmID, $spotFollow)', 
          {
     $artist: p.artist, $album: p.album, $date: p.date, $artwork: artwork, $summary: p.summary || null, $genre: p.genre, $bandcamp: p.bandcamp || null, $spotify: p.spotify || null, $jamendo: p.jamendo || null, $soundcloud: p.soundcloud || null, $amazon: p.amazon || null, $itunes: p.itunes || null, $gplay: p.gplay || null, $twitter: p.twitter || null, $facebook: p.facebook || null, $youtube: p.youtube || null, $gplus: p.gplus || null, $scSocial: p.scSocial || null, $picker: p.picker, $bcID: p.bcID || null, $scID: p.scID || null, $jmID: p.jmID || null, $spotFollow: p.spID || null
         }, function(err) {
          res.json(this.lastID);
-         });
+         });*/
 };
 
 exports.update = function(req, res) {
